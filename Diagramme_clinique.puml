@@ -1,0 +1,103 @@
+@startuml
+class com.clinique.model.Patient {
+- int id
+- String nom
+- String prenom
+- LocalDate dateNaissance
+- Sexe sexe
+- String telephone
+- String adresse
+- GroupeSanguin groupeSanguin
+- String antecedentsMedicaux
++ String toString()
+}
+
+
+enum com.clinique.model.Sexe {
++  MASCULIN
++  FEMININ
+}
+
+class com.clinique.model.Medecin {
+- int id
+- String nom
+- String prenom
+- String specialite
+- String telephone
++ String toString()
+}
+
+
+class com.clinique.model.Utilisateur {
+- int id
+- String login
+- String motDePasseHash
+- Role role
+- boolean actif
+}
+
+enum com.clinique.model.StatutPaiement {
++  PAYE
++  NON_PAYE
+}
+
+class com.clinique.model.Facture {
+- int id
+- LocalDateTime dateEmission
+- double montantTotal
+- ModePaiement modePaiement
+- StatutPaiement statutPaiement
+- Consultation consultation
+}
+
+enum com.clinique.model.ModePaiement {
++  ESPECES
++  CARTE
++  CHEQUE
++  VIREMENT
+}
+
+class com.clinique.model.Consultation {
+- int id
+- LocalDateTime date
+- String diagnostic
+- String observations
+- String prescription
+- Patient patient
+- Medecin medecin
+- RendezVous rendezVous
+}
+
+class com.clinique.model.RendezVous {
+- int id
+- LocalDateTime dateHeure
+- StatutRendezVous statut
+- String motif
+- Medecin medecin
+- Patient patient
+}
+
+enum com.clinique.model.GroupeSanguin {
++  A_POSITIF
++  A_NEGATIF
++  B_POSITIF
++  B_NEGATIF
++  O_POSITIF
++  O_NEGATIF
++  AB_POSITIF
++  AB_NEGATIF
+}
+
+enum com.clinique.model.Role {
++  ADMIN
++  MEDECIN
++  RECEPTIONNISTE
+}
+
+enum com.clinique.model.StatutRendezVous {
++  PROGRAMME
++  ANNULE
++  TERMINE
+}
+
+@enduml

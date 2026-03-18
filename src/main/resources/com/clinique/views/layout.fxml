@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="650.0" prefWidth="900.0"
+            xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.clinique.controller.LayoutController">
+    <top>
+        <MenuBar style="-fx-background-color: #1976D2;">
+            <menus>
+                <Menu text="Patients" style="-fx-text-fill: white;">
+                    <items>
+                        <MenuItem text="Gestion Patients" onAction="#afficherPatients"/>
+                    </items>
+                </Menu>
+                <Menu text="Rendez-vous">
+                    <items>
+                        <MenuItem text="Gestion Rendez-vous" onAction="#afficherRendezVous"/>
+                    </items>
+                </Menu>
+                <Menu text="Consultations">
+                    <items>
+                        <MenuItem text="Gestion Consultations" onAction="#afficherConsultations"/>
+                    </items>
+                </Menu>
+                <Menu text="Facturation">
+                    <items>
+                        <MenuItem text="Gestion Factures" onAction="#afficherFactures"/>
+                        <Menu text="Rapports">
+                            <items>
+                                <MenuItem text="Rapport journalier PDF"
+                                          onAction="#genererRapportJournalier"/>
+                            </items>
+                        </Menu>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <StackPane fx:id="stackPane"/>
+    </center>
+</BorderPane>
